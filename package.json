@@ -9,19 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.4",
+    "@apollo/experimental-nextjs-app-support": "^0.11.11",
+    "@tanstack/react-query": "^5.68.0",
+    "@tanstack/react-query-devtools": "^5.68.0",
+    "graphql": "^16.10.0",
+    "graphql-prettier": "^1.0.6",
+    "graphql-tag": "^2.12.6",
+    "next": "15.2.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@graphql-codegen/cli": "^5.0.5",
+    "@graphql-codegen/typescript": "^4.1.5",
+    "@graphql-codegen/typescript-operations": "^4.5.1",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
+    "@tailwindcss/postcss": "^4",
+    "@tanstack/eslint-plugin-query": "^5.68.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
