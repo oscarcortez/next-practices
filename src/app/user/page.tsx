@@ -1,14 +1,13 @@
-"use client"; 
+'use client';
 
-import { useUsersQuery } from "@/app/graphql/generated/graphql";
-
+import { useUsersQuery } from '@/app/graphql/generated/graphql';
+import { Button } from '@/components/ui/button';
 
 export default function Page() {
-
   const { data, loading, error } = useUsersQuery();
-  console.log('data', data)
-  console.log('loading', loading)
-  console.log('error', error)
+  console.log('data', data);
+  console.log('loading', loading);
+  console.log('error', error);
 
   if (error) {
     console.error('Error details:', {
@@ -18,10 +17,11 @@ export default function Page() {
     });
     return <p>Error: {error.message}</p>;
   }
-  
+
   return (
     <>
       <h1>Users</h1>
+      <Button>Click me</Button>
     </>
-  )
+  );
 }

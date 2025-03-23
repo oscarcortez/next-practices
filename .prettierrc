@@ -1,5 +1,4 @@
 {
-  "plugins": ["prettier-plugin-graphql"],
   "tabWidth": 2,
   "useTabs": false,
   "semi": true,
@@ -14,3 +13,4 @@
   "proseWrap": "preserve",
   "embeddedLanguageFormatting": "auto"
 }
+ 
