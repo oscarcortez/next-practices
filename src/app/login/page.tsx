@@ -22,11 +22,16 @@ const formSchema = z.object({
 
 type LoginLabel = {
   field: string;
-  english_value: string;
+  en_value: string;
+  es_value: string;
+  da_value: string;
 };
+
+export type Language = "en" | "es" | "da";
 
 export default function Page() {
   const [loginLabels, setLoginLabels] = useState<LoginLabel[]>([]);
+  const [lang, setLang] = useState<Language>("en");
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true)
   const supabase = createClient()
@@ -34,9 +39,18 @@ export default function Page() {
   useEffect(() => {
     const fetchLoginLabels = async () => {
       try {
-        const { data, error } = await supabase.from('login_labels').select('field, english_value');
-        if (error) throw error;
-        setLoginLabels(data);
+        const { data: dataLang, error: errorLang } = await supabase
+          .from('language')
+          .select('value')
+          .eq('is_active', true)
+          .single();
+        const { data: datalabels, error: errorLabels } = await supabase.from('login_labels')
+          .select('field, en_value, es_value, da_value');
+        if (errorLabels) throw errorLabels;
+        if (errorLang) throw errorLang;
+        setLoginLabels(datalabels);
+        setLang(dataLang.value)
+        console.log(dataLang)
       } catch (error) {
         setError(error as Error);
       } finally {
@@ -48,8 +62,9 @@ export default function Page() {
   }, []);
 
   const getLabel = (field: string) => {
+    const key = `${lang}_value` as keyof LoginLabel;
     const label = loginLabels.find((label) => label.field === field);
-    return label ? label.english_value : '';
+    return label ? label[key] : '';
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
