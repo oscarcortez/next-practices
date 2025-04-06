@@ -24,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className="h-full dark">
+      <body className={`h-full ${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ApolloWrapper>{children}</ApolloWrapper>
       </body>
     </html>

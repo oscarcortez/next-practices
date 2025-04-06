@@ -1,3 +1,4 @@
+@import 'primeicons/primeicons.css';
 @import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
@@ -52,7 +53,7 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: #4F46E5; /* Blue primary color */
+  --primary: #4f46e5; /* Blue primary color */
   --primary-foreground: oklch(0.984 0.003 247.858); /* Blue primary foreground color */
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);

@@ -3,7 +3,7 @@
 import { HttpLink } from '@apollo/client';
 import { ApolloNextAppProvider, ApolloClient, InMemoryCache } from '@apollo/experimental-nextjs-app-support';
 
-console.log('process.env.PUBLIC_GRAPHQL_ENDPOINT 1', process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT);
+// console.log('process.env.PUBLIC_GRAPHQL_ENDPOINT 1', process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT);
 const client = () => {
   const httpLink = new HttpLink({
     uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,

@@ -25,6 +25,7 @@ type LoginLabel = {
   en_value: string;
   es_value: string;
   da_value: string;
+
 };
 
 export type Language = "en" | "es" | "da";
