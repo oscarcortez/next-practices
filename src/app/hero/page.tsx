@@ -26,7 +26,7 @@ export default function Page() {
         <CustomTerminal initMessage="hola" />
         <div className="text-center">
           <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl dark:text-gray-100">
-            !Data to enrich your online business
+            Te invito a curiosear mi portafolio
           </h1>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
             Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet

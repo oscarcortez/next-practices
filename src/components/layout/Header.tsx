@@ -1,18 +1,19 @@
 import { JSX } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { CustomNavigationMenu } from './CustomNavigationMenu';
 
-type NavigationProps = {
+type HeaderProps = {
   navigation: { name: string; href: string }[];
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
 };
 
-export default function Navigation({
+export default function Header({
   navigation,
   mobileMenuOpen,
   setMobileMenuOpen,
-}: NavigationProps): JSX.Element {
+}: HeaderProps): JSX.Element {
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -37,7 +38,8 @@ export default function Navigation({
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <CustomNavigationMenu />
+        {/* <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <a
               key={item.name}
@@ -47,7 +49,8 @@ export default function Navigation({
               {item.name}
             </a>
           ))}
-        </div>
+        </div> */}
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
             href="#"

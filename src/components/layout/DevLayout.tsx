@@ -1,7 +1,7 @@
 import React, { JSX, ReactNode } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import Navigation from './Navigation';
+import Header from './Header';
 
 type LayoutProps = {
   children: ReactNode;
@@ -13,7 +13,7 @@ export default function DevLayout({ children, navigation }: LayoutProps): JSX.El
 
   return (
     <div className="bg-white dark:bg-gray-900">
-      <Navigation
+      <Header
         navigation={navigation}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}

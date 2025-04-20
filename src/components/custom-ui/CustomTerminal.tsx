@@ -61,7 +61,7 @@ function CustomTerminal({ initMessage, ...props }: CustomTerminalProps): JSX.Ele
 
   return (
     <Terminal
-      name="Oscar terminal "
+      name="fun terminal "
       prompt='OC (dev) $'
       redBtnCallback={() => {
         console.log('Red button clicked')
