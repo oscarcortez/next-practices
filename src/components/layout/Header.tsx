@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import { JSX, useEffect, useState } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { CustomNavigationMenu } from './CustomNavigationMenu';
@@ -14,6 +14,31 @@ export default function Header({
   mobileMenuOpen,
   setMobileMenuOpen,
 }: HeaderProps): JSX.Element {
+
+  const [typedText, setTypedText] = useState(""); // Estado para el texto que se escribe
+  const fullText = "git checkout dev ↵"; // Texto completo que se escribirá
+  const [showTypedText, setShowTypedText] = useState(true);
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < fullText.length) {
+        setTypedText((prev) => {
+          const next = `${prev}${fullText[index]}`;
+          return next.slice(-10);
+        });
+        index++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          setShowTypedText(false); // Cambiar el estado después de un tiempo adicional
+        }, 500);
+      }
+    }, 150);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -23,9 +48,24 @@ export default function Header({
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Oscar Cortez</span>
-            <span className="text-3xl font-bold text-green-400 border-2 border-t-8 border-green-500 rounded-lg px-4 py-2 dark:text-green-300 dark:border-green-400">
-              OC (dev) $
-            </span>
+            <div className="w-40 h-15 bg-black text-green-500 font-mono text-lg rounded-md shadow-md border border-green-500">
+              <div className="flex space-x-1 px-3 py-1 bg-gray-800 rounded-t-md">
+                <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
+                <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
+                <span className="w-2 h-2 bg-gray-600 rounded-full"></span>
+              </div>
+              <div className="px-4 py-2">
+                {
+                  showTypedText ? (
+                    <span className="text-white">{typedText}</span>
+                  ) : (<>
+                    <span className="text-white">luco</span>
+                    <span className="text-green-500">(dev)</span>
+                    <span className="text-white ml-2">$</span>
+                  </>
+                  )}
+              </div>
+            </div>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -38,9 +78,9 @@ export default function Header({
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <CustomNavigationMenu />
-        {/* <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
+        <div className="hidden lg:flex lg:gap-x-12">
+          <CustomNavigationMenu />
+          {/* {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
@@ -48,8 +88,8 @@ export default function Header({
             >
               {item.name}
             </a>
-          ))}
-        </div> */}
+          ))} */}
+        </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
@@ -110,6 +150,6 @@ export default function Header({
           </div>
         </DialogPanel>
       </Dialog>
-    </header>
+    </header >
   );
 }

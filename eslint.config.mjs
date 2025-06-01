@@ -29,6 +29,8 @@ const eslintConfig = [
     },
   },
   {
+    plugins: ['tailwindcss'],
+    extends: ['plugin:tailwindcss/recommended'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',

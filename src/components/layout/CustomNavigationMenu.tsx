@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
+import TerminalIcon from "@/components/icons/TerminalIcon"
 // import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
@@ -12,6 +13,45 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+
+const navigationLinks = [
+  {
+    name: "Inicio", href: "#", sublinks: [
+      { name: "Developer mode", href: "#" },
+      { name: "Marketing mode", href: "#" },
+      { name: "Business mode", href: "#" },
+      { name: "Sugiere mas modes", href: "#" },
+    ]
+  },
+  {
+    name: "Servicios", href: "#", sublinks: [
+      { name: "SQL", href: "#" },
+      { name: "Backend", href: "#" },
+      { name: "Frontend", href: "#" },
+      { name: "Git", href: "#" },
+      { name: "Scrum", href: "#" },
+    ]
+  },
+  { name: "Productos", href: "#", sublinks: [] },
+  {
+    name: "Sobre mi", href: "#", sublinks: [
+      { name: "Buenas experiencias", href: "#" },
+      { name: "Malas experiencias", href: "#" },
+      { name: "Offtopic experiences", href: "#" },
+    ]
+  },
+  {
+    name: "Preguntas", href: "#", sublinks: [
+      { name: "Whatsapp", href: "#" },
+      { name: "Facebook", href: "#" },
+      { name: "Instagram", href: "#" },
+      { name: "LinkedIn", href: "#" },
+      { name: "Github", href: "#" },
+      { name: "Gmail", href: "#" },
+      { name: "FAQ's", href: "#" },
+    ]
+  },
+]
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -56,7 +96,7 @@ export function CustomNavigationMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -65,13 +105,13 @@ export function CustomNavigationMenu() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
+                    <TerminalIcon />
                     {/* <Icons.logo className="h-6 w-6" /> */}
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
+                      luco dev
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
+                      Coding for fun, learning every day
                     </p>
                   </a>
                 </NavigationMenuLink>
